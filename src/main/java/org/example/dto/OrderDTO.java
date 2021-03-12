@@ -1,16 +1,18 @@
-package org.example.entity;
+package org.example.dto;
 
-public class Order {
+import org.springframework.hateoas.RepresentationModel;
+
+public class OrderDTO extends RepresentationModel<OrderDTO> {
 
     private int serviceId;
     private int orderId;
     private String description;
     private String status;
 
-    public Order() {
+    public OrderDTO() {
     }
 
-    public Order(int serviceId, int orderId, String description, String status) {
+    public OrderDTO(int serviceId, int orderId, String description, String status) {
         this.serviceId = serviceId;
         this.orderId = orderId;
         this.description = description;
