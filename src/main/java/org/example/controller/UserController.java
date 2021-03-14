@@ -33,14 +33,14 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUserInfo(
+    public ResponseEntity<Void> updateUserInfo(
             @PathVariable("id") int userId) {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> removeUserInfo(
+    public ResponseEntity<Void> removeUserInfo(
             @PathVariable("id") int userId) {
 
         return new ResponseEntity<>(HttpStatus.ACCEPTED);

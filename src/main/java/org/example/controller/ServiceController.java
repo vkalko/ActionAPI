@@ -18,11 +18,14 @@ import java.util.List;
 @RequestMapping(value = "/api/v1/services", produces = "application/json")
 public class ServiceController {
 
-    @Autowired
-    private ServiceAssembler serviceAssembler;
+    private final ServiceAssembler serviceAssembler;
+    private final OrderAssembler orderAssembler;
 
     @Autowired
-    private OrderAssembler orderAssembler;
+    public ServiceController(ServiceAssembler serviceAssembler, OrderAssembler orderAssembler) {
+        this.serviceAssembler = serviceAssembler;
+        this.orderAssembler = orderAssembler;
+    }
 
     @GetMapping()
     public ResponseEntity<CollectionModel<ServiceDTO>> getServicesList() {

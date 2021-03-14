@@ -17,8 +17,12 @@ import java.util.List;
 @RequestMapping(value = "/api/v1/documents", produces = "application/json")
 public class DocumentController {
 
+    private final DocumentAssembler documentAssembler;
+
     @Autowired
-    private DocumentAssembler documentAssembler;
+    public DocumentController(DocumentAssembler documentAssembler) {
+        this.documentAssembler = documentAssembler;
+    }
 
     @GetMapping()
     public ResponseEntity<CollectionModel<DocumentDTO>> getAllowedDocuments() {
